@@ -115,7 +115,7 @@ Nodejs是模块化编程，NodeJs中除了ECMAScript以外，Node环境提供了
 
 ## 6.npm 包管理器
 
-`npm` 可以管理项目依赖的下载。
+`npm` 可以管理项目依赖的下载[官网](http://www.npmjs.org)。
 
 ### 6.1 安装所有依赖
 
@@ -132,14 +132,18 @@ npm install
 也可以通过运行以下命令安装特定的软件包：
 
 ```bash
-npm install <package-name>
+npm install <package-name>(小写)
+下载jQuery
+npm install jquery
+下载到指定的版本
+npm install jquery@1.12.4
 ```
 
 ### 6.3 更新软件包
 
 通过运行以下命令，更新也变得很容易：
 
-```console
+```bash
 npm update
 ```
 
@@ -147,7 +151,7 @@ npm update
 
 也可以指定单个软件包进行更新：
 
-```console
+```bash
 npm update <package-name>
 ```
 
@@ -155,7 +159,7 @@ npm update <package-name>
 
 package.json 文件支持一种用于指定命令行任务（可通过使用以下方式运行）的格式：
 
-```console
+```bash
 npm run <task-name>
 ```
 
@@ -198,6 +202,17 @@ npm install -g lodash
 
 ```bash
 npm uninstall <package-name>
+```
+
+### 6.7 查看当前目录下已安装的node包
+
+```bash
+npm list
+```
+### 6.8 查看模块的版本
+
+```bash
+npm info <package-name>
 ```
 
 ### 6.7 淘宝镜像
