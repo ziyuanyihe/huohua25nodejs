@@ -226,7 +226,7 @@ npm info <package-name>
 $ npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 
-### 6.8 package.json和package-lock.json指南(参照官网)
+### 6.8 package-lock.json指南(参照官网)
 
 ## 7. fs模块(文件系统模块)
 
