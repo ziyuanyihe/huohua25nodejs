@@ -27,6 +27,7 @@ Node.js是一个Javascript运行环境(runtime environment)，发布于2009年5�
 ## 2.如何安装 Node.js
 
 [官网下载-稳定版](https://nodejs.org/zh-cn/)
+[nodejs中文网](http://nodejs.cn/)
 
 ## 3.查看安装版本
 
@@ -225,6 +226,8 @@ npm info <package-name>
 $ npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 
+### 6.8 package.json和package-lock.json指南(参照官网)
+
 ## 7. fs模块(文件系统模块)
 
 `fs` 模块提供了许多非常实用的函数来访问文件系统并与文件系统进行交互。
@@ -234,6 +237,4 @@ $ npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```javascript
 const fs = require('fs')
 ```
-
-## 8.package.json和package-lock.json指南(参照官网)
 
