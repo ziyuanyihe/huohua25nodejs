@@ -8,5 +8,5 @@ try {
     let data = fs.readFileSync('./files/3.txt', 'utf8');
     console.log(data);
 } catch (error) {
-    console.log(error);
+    // console.log(error);
 }
