@@ -1,0 +1,24 @@
+{
+  "name": "yearsystem",
+  "version": "1.0.0",
+  "description": "this is a year system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "year",
+    "system"
+  ],
+  "author": "momoko",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "md5": "^2.3.0",
+    "md5-node": "^1.0.1",
+    "silly-datetime": "^0.1.2"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
