@@ -75,12 +75,13 @@ db.user.find({ "age": "18" })
     // db.user.find().skip(2).count(true)
     // 易读方式pretty()
     // db.user.find().pretty()
-    // 更新数据
-    // db.user.update({ "name": "王帅" }, { "name": "王帅", "gender": "男" });
-    // db.user.update({ "name": "王帅" }, { "name": "王帅呆呆", "gender": "男" })
+    // 更新数据()
+    // db.user.update({ "name": "王帅" }, { "name": "王帅呆呆", "age": 27,"gender": "男" })
     // 更新数据的问题
     // db.user.update({ "age": 22 }, { "age": 23 })
     // db.user.update({ "age": 26 }, { "name": "张美丽1", "age": 27, "gender": "女" })
+    // 更新一条某一字段
+    // db.user.update({ "age": 20 }, { $set: { "age": 23 }})
     // 多条数据更新
     // db.user.update({ "age": 22 }, { $set: { "age": 23 } }, { multi: true })
     // 删除文档
