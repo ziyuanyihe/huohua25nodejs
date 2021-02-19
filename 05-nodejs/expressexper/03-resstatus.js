@@ -10,14 +10,14 @@ const app = express();
 app.get("/getstudent", (req, res, next) => {
     // 对客户端做出响应 send方法会根据内容的类型自动设置请求头
     console.log(req.query.name);
-    req.query.name = req.query.name+'超级会员';
+    req.name = '张美丽';
     next();
 });
 app.get("/getstudent", (req, res) => {
     // 对客户端做出响应 send方法会根据内容的类型自动设置请求头,
     // 设置响应的状态码
     // res.status(404).send(req.name);
-    res.send(200,req.query.name);
+    res.send(200, req.name);
 });
 app.listen(3000, () => {
     console.log('后台服务器打开端口为3000');
