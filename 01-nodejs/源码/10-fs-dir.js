@@ -1,5 +1,4 @@
 let fs = require('fs');
-const { callbackify } = require('util');
 // stat(path,callback):判定是文件还是目录
 // callback(err, stats):
 // stats.isDirectory()
@@ -9,7 +8,7 @@ const { callbackify } = require('util');
 //         console.log(err);
 //     } else {
 //         if (stats.isDirectory()) {
-//             console.log('是一个目录');
+//             console.log('是一个z目录');
 //         } else if (stats.isFile()) {
 //             console.log('是一个文件');
 //         }
@@ -32,7 +31,7 @@ const { callbackify } = require('util');
 //         console.log('目录删除成功');
 //     }
 // });
-// 如何删除一个不是空的文件夹
+// 如何删除一个不是空的文件夹??
 // fs.rmdir('./files', (err) => {
 //     if (err) {
 //         console.log(err);
