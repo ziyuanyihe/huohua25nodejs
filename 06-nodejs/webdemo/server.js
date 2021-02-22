@@ -12,7 +12,7 @@ const app = express();
 
 // 设置express设置模板引擎
 app.set('view engine','ejs');
-// 找到views里面的ejs文件
+// 找到views里面的ejs文件默认也可以不写
 // app.set('views',__dirname+ '/views');
 // 请求数据
 app.get('/',(req,res)=>{
