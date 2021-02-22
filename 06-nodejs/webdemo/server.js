@@ -10,6 +10,12 @@ const fs = require('fs');
 // 实例化
 const app = express();
 
+// 引入body-parser模块
+const bodyParser=require('body-parser');
+
+// 拦截请求
+app.use(bodyParser.urlencoded({extended:false}));
+
 // 设置express设置模板引擎
 app.set('view engine','ejs');
 // 找到views里面的ejs文件默认也可以不写
@@ -22,7 +28,7 @@ app.get('/',(req,res)=>{
             res.status(500).end();
             console.log(err);
         }else{
-            studentsObj=JSON.parse(data);
+           data=JSON.parse(data);
             // 读取ejs文件然后传递studentsObj给ejs,呈现html代码
             // ejs.renderFile('./views/index.ejs',studentsObj,(err,str)=>{
             //     if(err){
@@ -37,10 +43,26 @@ app.get('/',(req,res)=>{
             //         res.end(str);
             //     }
             // });
-            res.render("index",studentsObj);
+            // 要的是传递对象的键值
+            res.render("index",{students:data});
         }
     });
 });
+
+app.get('/login',(req,res)=>{
+    // 要的是传递对象的键值
+    res.render("login",{title:'登录'});
+});
+// 登录后到登录后的首页面
+app.post('/submit',(req,res)=>{
+    console.log(req.body);
+    res.render("mainPage",{
+        title:'登录后的首页面',
+        uname:req.body.uname
+    });
+
+});
+
 // 监听端口
 app.listen(3000,()=>{
     console.log('3000开启啦啦啦啦啦啦啊');

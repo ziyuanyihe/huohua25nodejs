@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 通过 include 指令将相对于模板路径中的模板片段包含进来。 -->
+    <%- include('./common/header.ejs',{header:title}); %>
+    <form action="/submit" method="POST">
+        <p>姓名:<input type="text" name="uname"></p>
+        <p>密码:<input type="password" name="pwd"></p>
+        <p><input type="submit" value="登录"></p>
+    </form>
+    <%- include('./common/footer.ejs'); %>
+</body>
+</html>
