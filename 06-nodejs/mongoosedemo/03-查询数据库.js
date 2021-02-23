@@ -34,9 +34,20 @@ const User =mongoose.model('user',userSchema);
 // });
 
 // 精准查询
-User.find({age:{$gt:30}}).then((result)=>{
+// User.find({age:{$gt:30}}).then((result)=>{
+//     console.log(result);
+// });
+
+// 排序-1降序 1正序
+// User.find().sort({"age":-1}).then((result)=>{
+//     console.log(result);
+// });
+
+User.find().sort({"age":1}).then((result)=>{
     console.log(result);
-})
+});
+
+
 
 
 

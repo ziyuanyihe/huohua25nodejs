@@ -26,6 +26,7 @@ const userSchema = new mongoose.Schema(
 // model('user',userSchema):(表名,模板)
 // 表名users注意
 const User =mongoose.model('user',userSchema);
+
 console.log(User);
 
 // 插入数据
