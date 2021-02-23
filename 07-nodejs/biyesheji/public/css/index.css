@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 头部样式 */
+
+.header {
+    width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+
+/* 表格样式 */
+
+.table_box {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.table_box table {
+    width: 1200px;
+    /* 细线表格 */
+    border-collapse: collapse;
+}
+
+.table_box table th,
+.table_box table td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.update_btn {
+    margin-right: 5px;
+}
