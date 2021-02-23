@@ -12,7 +12,7 @@ const cors = require('cors');
 app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
-// 解决ajax的跨域
+// 解决ajax的跨域  
 app.use(cors());
 // 设置一级路由
 app.use('/api/student',require('./routes/students'));
