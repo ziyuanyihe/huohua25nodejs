@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 什么是cookie -->
+    <!-- cookie是一些数据,存储本地电脑或者手机的文件 -->
+    <!-- 当web服务器向浏览器发送web页面时,写入的数据,记录用户的相关信息,账户名称,密码,浏览记录等 -->
+    <!-- 如何记录客户端的用户信息 -->
+    <!-- 当用户访问web页面时,就记录了cookie,再次访问时,读取cookie关于用户的浏览记录, -->
+    <!-- cookie是document对象的属性 -->
+    <script>
+        //创建cookie
+        // document.cookie='uname=zml';
+        // document.cookie='anhao=twgdh';
+        // 设置cookie的过期时间
+        // var outDate = new Date();
+        // 得到当前的日期
+        // console.log(outDate.getDate());
+        // 设置7天后过期
+        // outDate.setDate(outDate.getDate()+7);
+        // document.cookie='uname=zml;expires=' + outDate;
+        // document.cookie='anhao=twgdh;expires=' + outDate;
+
+        // 封装一个setCookie方法
+        function setCookie(key,value,time){
+            var outDate = new Date();
+            outDate.setDate(outDate.getDate()+time);
+            document.cookie=key+'='+value+';expires='+outDate;
+        }
+        // 调用方法
+        // setCookie('wwid','09090121',30);
+
+        // console.log(document.cookie);
+        // uname=zml; anhao=twgdh; wwid=09090121
+        // 封装cookie方法
+        function getCookie(key){
+            let str = document.cookie;
+            let obj={};
+            // 分割得到数组数据
+            //  ["uname=zml", "anhao=twgdh", "wwid=09090121"]
+            let arr=str.split('; ');
+            console.log(arr);
+            // 遍历得到键值对存入对象
+            arr.forEach((value)=>{
+                let relarr = value.split('=');
+                // 存入对象
+                obj[relarr[0]]=relarr[1];
+            });
+            return obj[key];
+        }
+        // console.log(getCookie('wwid'));
+
+        // 删除cookie
+        function removeCookie(key){
+            setCookie(key,"1",-1);
+        }
+        removeCookie('wwid');
+
+    </script>
+</body>
+</html>
