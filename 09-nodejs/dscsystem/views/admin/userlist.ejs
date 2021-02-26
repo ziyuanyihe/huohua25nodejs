@@ -102,7 +102,7 @@
                                 </li>
                                 <%}%>
                                     <li class="<%=page==totalPage?'disabled':''%>">
-                                        <a href="/admin/userlist?page=<%=page=page<totalPage?page+1:totalPage%>">下一页</a>
+                                        <a href="/admin/userlist?page=<%=page<totalPage?page+1:totalPage%>">下一页</a>
                                     </li>
                                     <li><a href=" /admin/userlist?page=<%=totalPage%>">尾页</a></li>
                         </ul>

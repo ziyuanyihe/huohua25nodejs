@@ -102,7 +102,7 @@
                                 </li>
                                 <%}%>
                                     <li class="<%=page==totalPage?'disabled':''%>">
-                                        <a href="/admin/searchuser?username=<%=searchname%>&page=<%=page=page<totalPage?page+1:totalPage%>">下一页</a>
+                                        <a href="/admin/searchuser?username=<%=searchname%>&page=<%=page<totalPage?page+1:totalPage%>">下一页</a>
                                     </li>
                                     <li><a href=" /admin/searchuser?page=<%=totalPage%>&username=<%=searchname%>">尾页</a></li>
                         </ul>
