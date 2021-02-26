@@ -12,15 +12,15 @@ module.exports = async(req, res) => {
     // 每页5条数据
     let size = req.query.size || 5;
     // 共多少条数据
-    let total = await User.countDocuments({});
+    let total = await User.countDocuments({ "username": new RegExp(req.query.username, "gi") });
     // 一共多少页
     let totalPage = Math.ceil(total / size);
     // skipdata 跳过去的数据
     let skipdata = (page - 1) * size
 
     // 查询数据
-    const result = await User.find().limit(size).skip(skipdata);
-    res.render('./admin/userlist.ejs', {
+    const result = await User.find({ "username": new RegExp(req.query.username, "gi") }).limit(size).skip(skipdata);
+    res.render('./admin/searchuser', {
         // 总数据
         userlist: result,
         // 一共多少条数据
@@ -28,6 +28,7 @@ module.exports = async(req, res) => {
         // 当前页码
         page: page,
         // 总页
-        totalPage: totalPage
+        totalPage: totalPage,
+        searchname: req.query.username
     });
 }

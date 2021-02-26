@@ -1,10 +1,10 @@
 const User = require('../../../db/userschma');
 const md5 = require('md5');
 module.exports = async(req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     // 获取用户名和密码跟数据库作比对
     let usernamerel = await User.findOne({ "username": req.body.username });
-    console.log(usernamerel);
+    // console.log(usernamerel);
     let userInfo = {
         username: req.body.username,
         password: md5(req.body.password)
@@ -20,7 +20,7 @@ module.exports = async(req, res) => {
         if (loginrel) {
             // 跳转到用户列表的页面主页面
             // 设置session的数据和ejs公共数据
-            // req.app.locals.username = req.body.username,
+            req.app.locals.username = req.body.username;
             req.session.username = req.body.username;
             res.redirect('/admin/userlist');
         } else {
