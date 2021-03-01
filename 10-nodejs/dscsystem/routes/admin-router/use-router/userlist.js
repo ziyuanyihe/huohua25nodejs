@@ -20,7 +20,7 @@ module.exports = async(req, res) => {
 
     // 查询数据
     const result = await User.find().limit(size).skip(skipdata);
-    res.render('./admin/userlist.ejs', {
+    res.render('./admin/userlist', {
         // 总数据
         userlist: result,
         // 一共多少条数据
