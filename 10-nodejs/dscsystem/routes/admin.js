@@ -32,5 +32,8 @@ router.post('/upload-img', require('./admin-router/product-router/uploadimg'));
 router.post('/doproductadd', require('./admin-router/product-router/doproductadd'));
 // 展示商品列表productlist
 router.get('/productlist', require('./admin-router/product-router/productlist'));
-
+// 进入商品修改页面
+router.get('/productedit', require('./admin-router/product-router/productedit'));
+// 修改用户操作
+router.post('/doproductedit/:productId', require('./admin-router/product-router/doproductedit'));
 module.exports = router;

@@ -85,10 +85,9 @@
                                             <%=productlists[i].description%>
                                         </td>
                                         <td class="text-center">
-                                            <a href="/admin/edituser?id=<%=productlists[i]._id%>" class="btn btn-primary">修改</a>
+                                            <a href="/admin/productedit?id=<%=productlists[i]._id%>" class="btn btn-primary">修改</a>
                                             <button type="button" class="btn btn-danger deleteuser" data-toggle="modal" data-target="#myModal" data-id="<%=productlists[i]._id%>">删除</button>
                                         </td>
-
                                     </tr>
                                     <%}%>
                             </tbody>
@@ -97,21 +96,21 @@
                         <ul class="pagination">
                             <li><a href="">共<span><%=total%></span>条数据</a></li>
                             <li>
-                                <a href="/admin/productlists?page=1">首页</a>
+                                <a href="/admin/productlist?page=1">首页</a>
                             </li>
                             <li class="<%=page==1?'disabled':''%>">
-                                <a href="/admin/productlists?page=<%=page-1%>">上一页</a></li>
+                                <a href="/admin/productlist?page=<%=page-1%>">上一页</a></li>
                             <%for(var i=1;i<=totalPage;i++){%>
-                                <li>
-                                    <a href="/admin/productlists?page=<%=i%>">
+                                <li class="<%=page==i?'active':''%>">
+                                    <a href="/admin/productlist?page=<%=i%>">
                                         <%=i%>
                                     </a>
                                 </li>
                                 <%}%>
                                     <li class="<%=page==totalPage?'disabled':''%>">
-                                        <a href="/admin/productlists?page=<%=page<totalPage?page+1:totalPage%>">下一页</a>
+                                        <a href="/admin/productlist?page=<%=page<totalPage?page+1:totalPage%>">下一页</a>
                                     </li>
-                                    <li><a href=" /admin/productlists?page=<%=totalPage%>">尾页</a></li>
+                                    <li><a href=" /admin/productlist?page=<%=totalPage%>">尾页</a></li>
                         </ul>
                     </div>
                 </div>

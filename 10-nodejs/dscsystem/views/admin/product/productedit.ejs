@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加页面</title>
+    <link rel="stylesheet" href="/common/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/basic.css">
+    <script src="https://cdn.jsdelivr.net/npm/wangeditor@latest/dist/wangEditor.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- 导航 -->
+    <%-include('../common/header.ejs')%>
+        <!-- 主题内容 -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2">
+                    <%-include('../common/sidebar.ejs')%>
+                </div>
+                <div class="col-sm-10">
+                    <ol class="breadcrumb">
+                        <li class="active">商品管理
+                        </li>
+                        <li>商品列表</li>
+                    </ol>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            增加商品
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive input-form">
+                                <!-- 有文件类型的时候要设置enctype -->
+                                <form action="/admin/doproductedit/<%=editData._id%>" method="post" enctype="multipart/form-data">
+                                    <ul>
+                                        <li> 商品名称: <input type="text" name="title" value="<%=editData.title%>" /></li>
+                                        <li>
+                                            商品一级分类: <select name="cate_id" id="">
+                                            <option value="1">男装</option>
+                                            <option value="2">女装</option>
+                                            <option value="3">童装</option>
+                                        </select>
+                                        </li>
+                                        <li>
+                                            商品二级分类: <select name="goods_id" id="">
+                                            <option value="100001">海澜之家</option>
+                                            <option value="200001">拉夏贝尔</option>
+                                            <option value="300001">kids</option>
+                                        </select>
+                                        </li>
+                                        <li> 商品图片: <input type="file" name="pic" id="file" /></li>
+                                        <li>
+                                            <img src="<%=editData.pic%>" style="width: 50px; " id="thumb"></li>
+                                        <li> 商品价格: <input type="text " name="price" value="<%=editData.price%>" /></li>
+                                        <li> 商品邮费: <input type="text " name="fee" value="<%=editData.fee%>" /></li>
+                                        <li>
+                                            商品描述:
+                                            <div id="div1">
+                                                <%-editData.description%>
+                                            </div>
+                                            <textarea name="description" id="text1" style="visibility:hidden;height: 0;"><%-editData.description%></textarea>
+                                        </li>
+                                        <li>
+                                            <button type="submit" class="btn btn-default ">提交</button>
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            // 查找DOM元素
+            let file = document.querySelector('#file');
+            let thumb = document.querySelector('#thumb');
+            file.onchange = function() {
+                // 初始化fileReader
+                let fileread = new FileReader();
+                // 读文件
+                fileread.readAsDataURL(this.files[0]);
+                // 等文件加载完后,再读取
+                fileread.onload = function() {
+                    thumb.src = fileread.result;
+                }
+            };
+        </script>
+        <script type="text/javascript ">
+            const E = window.wangEditor;
+            const editor = new E('#div1');
+            // 设置富文本的高度
+            editor.config.height = 300;
+            // 文本域
+            const $text1 = $('#text1');
+            editor.config.onchange = function(html) {
+                // 第二步，监控变化，同步更新到 textarea
+                $text1.val(html);
+            };
+
+            // 配置 server 接口地址
+            editor.config.uploadImgServer = '/admin/upload-img';
+            editor.create();
+        </script>
+</body>
+
+</html>
