@@ -19,5 +19,18 @@ router.post('/doedituser/:userId', require('./admin-router/use-router/doedituser
 router.post('/deleteuser', require('./admin-router/use-router/deleteuser'));
 // 搜索用户操作
 router.get('/searchuser', require('./admin-router/use-router/searchuser'));
+// 退出操作
+router.get('/signout', require('./admin-router/use-router/signout'));
+
+
+// 以下内容操作商品的业务逻辑
+router.get('/productadd', require('./admin-router/product-router/productadd'));
+// 配置富文本的图片上传接口
+// /upload-img
+router.post('/upload-img', require('./admin-router/product-router/uploadimg'));
+// 增加商品doproductadd
+router.post('/doproductadd', require('./admin-router/product-router/doproductadd'));
+// 展示商品列表productlist
+router.get('/productlist', require('./admin-router/product-router/productlist'));
 
 module.exports = router;

@@ -42,6 +42,7 @@ const userSchema = new mongoose.Schema({
 
 // 利用规则创建集合
 const User = mongoose.model('User', userSchema);
+// const Product = mongoose.model('Product', userSchema);
 
 // 暴露出去.使用User
-module.exports = User
+module.exports = User;

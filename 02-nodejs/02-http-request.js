@@ -7,6 +7,7 @@ let server = http.createServer((req, res) => {
     // 假设http://localhost:3000/about.html
     //   /about.html
     console.log(req.url);
+    console.log(req);
     // 设置相应消息message
     res.writeHead(200, 'success', {
         'Content-Type': 'text/html;charset=utf-8'
