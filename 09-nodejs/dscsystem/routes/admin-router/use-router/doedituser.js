@@ -10,7 +10,7 @@ module.exports = async(req, res) => {
     };
     // console.log(req.body.userId);
     // console.log(req.query.userId);
-    // console.log(req.params.userId);
+    // console.log(req.params.userId);    
     // 添加数据操作
     let rel = await User.updateOne({ "_id": req.body.userId }, usermessage);
     if (rel) {
