@@ -3,15 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="/common/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/basic.css">
 </head>
 
 <body>
-    <%-include('../common/header.ejs')%>
+    <!--The content below is only a placeholder and can be replaced.-->
+
+    <link rel="stylesheet" href="/common/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/basic.css">
+
+    <%- include("../common/header.ejs")%>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-2">
@@ -35,11 +36,11 @@
                                     <input type="text" name="title" class="form-control" id="name" placeholder="请输入名称">
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">最大价格</label>
+                                    <label for="name">最小价格</label>
                                     <input type="text" value="" name="price1" class="form-control" id="name" placeholder="最小价格">
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">最小价格</label>
+                                    <label for="name">最大价格</label>
                                     <input type="text" name="price2" value="" class="form-control" id="name" placeholder="最大价格">
                                 </div>
 
@@ -61,18 +62,18 @@
                                     <th>二级</th>
                                     <th>价格</th>
                                     <th>邮费</th>
-                                    <th width="300px">描述</th>
+                                    <th width="500px">描述</th>
                                     <th class="text-center" width="130px">操作</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <%for(var i=0;i<productlists.length;i++){%>
+                                <%for(let i=0;i<productlists.length;i++){%>
                                     <tr>
                                         <td>
                                             <%=i+1%>
                                         </td>
                                         <td>
-                                            <img src="<%=productlists[i].pic%>" alt="" width="50px">
+                                            <img style="width: 60px;" src="<%=productlists[i].pic%>" alt="">
                                         </td>
                                         <td>
                                             <%=productlists[i].title%>
@@ -100,26 +101,24 @@
                                     <%}%>
                             </tbody>
                         </table>
-                        <!-- 分页的数据 -->
-                        <ul class="pagination">
-                            <li><a href="">共<span><%=total%></span>条数据</a></li>
-                            <li>
-                                <a href="/admin/productlist?page=1">首页</a>
-                            </li>
-                            <li class="<%=page==1?'disabled':''%>">
-                                <a href="/admin/productlist?page=<%=page-1%>">上一页</a></li>
-                            <%for(var i=1;i<=totalPage;i++){%>
-                                <li class="<%=page==i?'active':''%>">
-                                    <a href="/admin/productlist?page=<%=i%>">
-                                        <%=i%>
-                                    </a>
+                        <div>
+                            <ul class="pagination">
+                                <li><a href="">总共<span><%=total%></span>条数据</a></li>
+                                <li><a href="/admin/productsearch?page=1&price1=<%=price1%>&price2=<%=price2%>&title=<%=title%>">首页</a></li>
+                                <li class="<%=page==1?'disabled':''%>"><a href="/admin/productsearch?page=<%=page-1%>&price1=<%=price1%>&price2=<%=price2%>&title=<%=title%>">上一页</a>
                                 </li>
-                                <%}%>
-                                    <li class="<%=page==totalPage?'disabled':''%>">
-                                        <a href="/admin/productlist?page=<%=page<totalPage?page+1:totalPage%>">下一页</a>
+
+                                <%for(var i=1;i<=totalPage;i++){%>
+                                    <li class="<%=page==i?'active':''%>">
+                                        <a href="/admin/productsearch?page=<%=i%>&price1=<%=price1%>&price2=<%=price2%>&title=<%=title%>">
+                                            <%=i%>
+                                        </a>
                                     </li>
-                                    <li><a href=" /admin/productlist?page=<%=totalPage%>">尾页</a></li>
-                        </ul>
+                                    <%}%>
+                                        <li class="<%=page==totalPage?'disabled':''%>"><a href="/admin/productsearch?price1=<%=price1%>&price2=<%=price2%>&title=<%=title%>&page=<%=page<totalPage?page+1:totalPage%>">下一页</a></li>
+                                        <li><a href="/admin/productsearch?page=<%=totalPage%>&price1=<%=price1%>&price2=<%=price2%>&title=<%=title%>">尾页</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

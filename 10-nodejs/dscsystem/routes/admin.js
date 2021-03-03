@@ -36,4 +36,8 @@ router.get('/productlist', require('./admin-router/product-router/productlist'))
 router.get('/productedit', require('./admin-router/product-router/productedit'));
 // 修改用户操作
 router.post('/doproductedit/:productId', require('./admin-router/product-router/doproductedit'));
+//删除产品
+router.get("/productdelete", require("./admin-router/product-router/productdelete"))
+    //搜索产品
+router.get("/productsearch", require("./admin-router/product-router/productsearch"))
 module.exports = router;
