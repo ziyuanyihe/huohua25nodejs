@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket</title>
+    <link rel="stylesheet" href="css/clientdemo.css">
+</head>
+
+<body>
+    <h1>WebSocket 测试</h1>
+    <div id="phone">
+        <!-- 接受消息 -->
+        <div id="recv"></div>
+        <div id="send">
+            <input type="text" id="sendTxt" />
+            <input type="button" value="发送" id="sendBtn" />
+        </div>
+    </div>
+    <script>
+        // 获取元素
+        var recv = document.querySelector('#recv');
+        var sendBtn = document.querySelector('#sendBtn');
+        var sendTxt = document.querySelector('#sendTxt');
+        // 1.创建一个websocket实例
+        var websocket = new WebSocket('ws://192.168.10.53:8001');
+        // 打开事件创建连接
+        websocket.onopen = function() {
+            console.log('建立连接了');
+            recv.innerHTML = '已连接';
+            // 绑定点击事件
+            sendBtn.onclick = function() {
+                websocket.send(sendTxt.value);
+                // 发送消息后,清空输入框
+                sendTxt.value = ''
+            };
+            sendTxt.onkeyup = function(e) {
+                if (e.keyCode == 13) {
+                    websocket.send(sendTxt.value);
+                    // 发送消息后,清空输入框
+                    sendTxt.value = ''
+                }
+
+            }
+        };
+        // 传递消息
+        // 当通过 WebSocket 收到数据时触发。
+        websocket.onmessage = function(e) {
+            console.log(e.data);
+            var div = document.createElement('div');
+            div.innerHTML = e.data;
+            // 把数据添加到页面
+            recv.appendChild(div);
+
+        };
+        // 当一个 WebSocket 连接被关闭时触发。
+        websocket.onclose = function() {
+            console.log('断开连接');
+            var div = document.createElement('div');
+            div.innerHTML = '关闭连接'
+                // 把数据添加到页面
+            recv.appendChild(div);
+
+        };
+    </script>
+</body>
+
+</html>
