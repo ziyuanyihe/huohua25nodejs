@@ -29,10 +29,9 @@ var server = ws.createServer(function(conn) {
 console.log('端口开启8001');
 // 广播给所有人
 function broadcast(str) {
-    // console.log(server.connections);
     server.connections.forEach((connect) => {
-        // console.log(connect);
         // 传回前台消息
+        console.log(connect.__proto__);
         connect.sendText(str);
     });
 }
